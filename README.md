@@ -38,6 +38,8 @@ git clone https://github.com/jrgranada/cb_entertainment_backend.git
 
 Para el despliegue de la solución abra el poryecto con Visual Studio y realice el despliegue en Docker.
 
+Antes de acceder a la aplicación es necesario conocer el puerto que le fue asignado, normalmente un puerto para las peticiones http y otro para las https, esta información se requiere al momento de desplegar el forntend de la solución.
+
 ### Accediendo a la aplicación
 
-Antes de acceder a la aplicación es necesario conocer el puerto que le fue asignado, normalmente un puerto para las peticiones http y otro para las https, esta información se requiere al momento de desplegar el forntend de la solución.
+La URL para acceder al Open API de la aplicación debe lucir de la siguiente manera: https://localhost:32776/swagger/index.html ,usted debe cambiar el puerto a esta URL, una vez hecho el ajuste puede ir a través de un navegador web.
