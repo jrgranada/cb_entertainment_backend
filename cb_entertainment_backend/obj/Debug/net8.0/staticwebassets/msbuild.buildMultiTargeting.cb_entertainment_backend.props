@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\cb_entertainment_backend.props" />
+</Project>
