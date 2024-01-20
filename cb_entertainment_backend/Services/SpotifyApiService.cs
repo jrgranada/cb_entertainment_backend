@@ -51,9 +51,9 @@ namespace cb_entertainment_backend.Services
                     throw new UnauthorizedAccessException();
                 }
 
-                var body = await result.Content.ReadAsStringAsync();
+                var bodyResponse = await result.Content.ReadAsStringAsync();
 
-                JObject jObject = JObject.Parse(body);
+                JObject jObject = JObject.Parse(bodyResponse);
 
                 List<AlbumDto> albums = MapperRespSpotifyToClass.Mapper<AlbumDto>(jObject, "albums", "items");
 
