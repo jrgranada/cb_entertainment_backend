@@ -5,15 +5,15 @@ using cb_entertainment_backend.Exceptions;
 
 namespace cb_entertainment_backend.Services
 {
-    public class SpotifyAuth(
+    public class SpotifyAuthService(
         HttpClient httpClient,
         IConfiguration configuration,
-        ILogger<SpotifyApiService> logger
-    ) : ISpotifyAuth
+        ILogger<SpotifyAuthService> logger
+    ) : ISpotifyAuthService
     {
         private readonly HttpClient _httpClient = httpClient;
         private readonly IConfiguration _configuration = configuration;
-        private readonly ILogger<SpotifyApiService> _logger = logger;
+        private readonly ILogger<SpotifyAuthService> _logger = logger;
         public async Task<string> GetAuthToken()
         {
             string apiUrl = _configuration["SpotifySettings:GetTokenUrl"] ??

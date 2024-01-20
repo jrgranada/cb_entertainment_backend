@@ -1,24 +1,22 @@
 ﻿using cb_entertainment_backend.DTOs;
 using cb_entertainment_backend.Exceptions;
 using cb_entertainment_backend.Interfaces;
-using cb_entertainment_backend.Services;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
 namespace cb_entertainment_backend.Controllers
 {
     [Route("api/[controller]")]
     [ApiController]
-    public class SpotifyAuthController(ISpotifyAuth spotifyAuth) : ControllerBase
+    public class SpotifyAuthController(ISpotifyAuthService spotifyAuthService) : ControllerBase
     {
-        private readonly ISpotifyAuth _spotifyAuth = spotifyAuth;
+        private readonly ISpotifyAuthService _spotifyAuthService = spotifyAuthService;
 
         [HttpGet("token")]
         public async Task<ActionResult<string>> GetAuthToken()
         {
             try
             {
-                return await _spotifyAuth.GetAuthToken();
+                return await _spotifyAuthService.GetAuthToken();
             }
             catch (UnauthorizedAccessException)
             {

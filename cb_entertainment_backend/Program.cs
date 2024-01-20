@@ -21,7 +21,7 @@ builder.Services.AddCors(options =>
 
 // Add services to the container.
 builder.Services.AddScoped<ISpotifyApiService, SpotifyApiService>();
-builder.Services.AddScoped<ISpotifyAuth, SpotifyAuth>();
+builder.Services.AddScoped<ISpotifyAuthService, SpotifyAuthService>();
 
 // Cliente HTTP
 builder.Services.AddHttpClient<ISpotifyApiService, SpotifyApiService>(client =>
@@ -29,7 +29,7 @@ builder.Services.AddHttpClient<ISpotifyApiService, SpotifyApiService>(client =>
     var url = builder.Configuration[ key: "SpotifySettings:BaseUrl"] ?? "";
     client.BaseAddress = new Uri(url);
 });
-builder.Services.AddHttpClient<ISpotifyAuth, SpotifyAuth>();
+builder.Services.AddHttpClient<ISpotifyAuthService, SpotifyAuthService>();
 
 // Validadores
 builder.Services.AddScoped<IValidator<SearchRequestDto>, SearchRequestValidator>();
